@@ -264,6 +264,7 @@ func GetTLSTransport() (*http.Transport, error) {
 	// create a Transport object for use by the HTTP client
 	// #nosec: G402
 	return &http.Transport{
+		Proxy: http.ProxyFromEnvironment,
 		TLSClientConfig: &tls.Config{
 			RootCAs:            caCertPool,
 			InsecureSkipVerify: true,
